@@ -5,20 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Algorithms Visualizer</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+   
 </head>
 <body>
-    <h1>Sorting Algorithms Visualizer</h1>
-    <div class="controls">
-        <button onclick="initArray()">Generate New Array</button>
-        <select id="algorithmSelect">
-            <option value="bubbleSort">Bubble Sort</option>
-            <option value="selectionSort">Selection Sort</option>
-            <option value="insertionSort">Insertion Sort</option>
-            <option value="quickSort">Quick Sort</option>
-        </select>
-        <button onclick="startSort()">Start Sorting</button>
+    <div class="container">
+        <h1>Sorting Algorithms Visualizer</h1>
+        <div class="controls">
+            <button onclick="initArray()">Generate New Array</button>
+            <select id="algorithmSelect">
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="selectionSort">Selection Sort</option>
+                <option value="insertionSort">Insertion Sort</option>
+                <option value="quickSort">Quick Sort</option>
+            </select>
+            <button onclick="startSort()">Start Sorting</button>
+        </div>
+        <div id="speed-value">Speed: 50ms</div>
+        <input type="range" id="speedSlider" min="1" max="100" value="50" oninput="updateSpeed()">
+        <div id="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div id="info">
+            Array Size: <span id="arraySize"></span> | 
+            Comparisons: <span id="comparisons">0</span> | 
+            Swaps: <span id="swaps">0</span>
+        </div>
     </div>
-    <div id="container"></div>
 
     <script src="script.js"></script>
 </body>
